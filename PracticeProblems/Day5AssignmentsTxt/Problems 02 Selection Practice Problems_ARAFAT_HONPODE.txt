@@ -1,0 +1,850 @@
+Name: Arafat Honpode  (JOINED CLASS LATE)
+
+Problems 02 Selection Practice Problems:-
+
+
+*) Selection Practice Problems with if & else:
+
+1. write a program that reads 5 random 3 digit vlaues
+   and then outputs the minimum and the maximum value.
+Ans)
+CODE:
+#!/bin/bash -x
+
+read -a number
+
+max=${number[0]}
+min=${number[0]}
+
+for i in "${number[@]}"
+do
+    # It will Update max if applicable
+    if [[ "$i" -gt "$max" ]] 
+    then
+        max="$i"
+    fi
+
+    # It will Update min if applicable
+    if [[ "$i" -lt "$min" ]] 
+    then
+        min="$i"
+    fi
+done
+
+echo "Maximum Value is: $max"
+echo "Minimum Value is: $min" 
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElse$ ./ifelseone.sh 
++ read -a number
+300 400 200 500 100
++ max=300
++ min=300
++ for i in "${number[@]}"
++ [[ 300 -gt 300 ]]
++ [[ 300 -lt 300 ]]
++ for i in "${number[@]}"
++ [[ 400 -gt 300 ]]
++ max=400
++ [[ 400 -lt 300 ]]
++ for i in "${number[@]}"
++ [[ 200 -gt 400 ]]
++ [[ 200 -lt 300 ]]
++ min=200
++ for i in "${number[@]}"
++ [[ 500 -gt 400 ]]
++ max=500
++ [[ 500 -lt 200 ]]
++ for i in "${number[@]}"
++ [[ 100 -gt 500 ]]
++ [[ 100 -lt 200 ]]
++ min=100
++ echo 'Maximum Value is: 500'
+Maximum Value is: 500
++ echo 'Minimum Value is: 100'
+Minimum Value is: 100
+
+
+3. Write a program that takes a year as input and outputs
+   the year is a leap year or not a leap year. A leap 
+   year checks for 4 digit number, divisible by 4 and not
+   100 unless divisible by 400.
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter the year (YYYY)"
+read year
+
+if [ $((year % 4)) -eq 0 ]
+then
+  if [ $((year % 100)) -eq 0 ]
+    then
+    if [ $((year % 400)) -eq 0 ]
+          then
+        echo "its a leap year"
+    else
+           echo "its not a leap year"
+    fi
+  else
+  echo "Its a leap year"
+  fi
+else
+ echo "its not a leap year"
+
+fi
+
+
+OUTPUT:
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElse$ ./ifelsethree.sh
++ echo 'Enter the year (YYYY)'
+Enter the year (YYYY)
++ read year
+1900
++ '[' 0 -eq 0 ']'
++ '[' 0 -eq 0 ']'
++ '[' 300 -eq 0 ']'
++ echo 'its not a leap year'
+its not a leap year
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElse$ ./ifelsethree.sh
++ echo 'Enter the year (YYYY)'
+Enter the year (YYYY)
++ read year
+2020
++ '[' 0 -eq 0 ']'
++ '[' 20 -eq 0 ']'
++ echo 'Its a leap year'
+Its a leap year
+
+
+
+4. Write a program to simulate a coin flip and print 
+   out "Heads" ot "Tails" accordingly.
+Ans)
+CODE:
+#!/bin/bash -x
+
+Head=1
+
+randomCheck=$(( RANDOM % (2 - 1 + 1 ) + 1 ))
+
+if [ $Head -eq $randomCheck ]
+then
+      echo "Heads"
+else
+      echo "Tails"
+fi
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElse$ ./ifelsefour.sh 
++ Head=1
++ randomCheck=2
++ '[' 1 -eq 2 ']'
++ echo Tails
+Tails
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElse$ ./ifelsefour.sh 
++ Head=1
++ randomCheck=1
++ '[' 1 -eq 1 ']'
++ echo Heads
+Heads
+
+
+
+
+*) Selection Practice Problems with if, elif and else:
+
+1. Read a single digit number and write the number in word.
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter Number in Integer(Single Digit):"
+read input
+
+
+zero=0
+one=1
+two=2
+three=3
+four=4
+five=5
+six=6
+seven=7
+eight=8
+nine=9
+ten=10
+
+
+if [ $input -eq $zero ]
+then
+   output=Zero
+
+elif [ $input -eq $one ]
+then
+   output=One
+elif [ $input -eq $two ]
+then
+   output=Two
+
+elif [ $input -eq $three ]
+then
+   output=Three
+
+elif [ $input -eq $four ]
+then
+   output=Four
+
+elif [ $input -eq $five ]
+then
+   output=Five
+
+elif [ $input -eq $six ]
+then
+   output=Six
+
+elif [ $input -eq $seven ]
+then
+   output=Seven
+elif [ $input -eq $eight ]
+then
+   output=Eight
+
+elif [ $input -eq $nine ]
+then
+   output=Nine
+
+elif [ $input -eq $ten ]
+then
+   output=Ten
+
+else
+   output=NotApplicable
+fi
+
+echo "Number" $input "in Characters" $output
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElifelse$ ./ifelifelseone.sh 
++ echo 'Enter Number in Integer(Single Digit):'
+Enter Number in Integer(Single Digit):
++ read input
+8
++ zero=0
++ one=1
++ two=2
++ three=3
++ four=4
++ five=5
++ six=6
++ seven=7
++ eight=8
++ nine=9
++ ten=10
++ '[' 8 -eq 0 ']'
++ '[' 8 -eq 1 ']'
++ '[' 8 -eq 2 ']'
++ '[' 8 -eq 3 ']'
++ '[' 8 -eq 4 ']'
++ '[' 8 -eq 5 ']'
++ '[' 8 -eq 6 ']'
++ '[' 8 -eq 7 ']'
++ '[' 8 -eq 8 ']'
++ output=Eight
++ echo Number 8 'in Characters' Eight
+Number 8 in Characters Eight
+
+
+
+2. Read a number and display the week day (Sunday, Monday...).
+Ans)
+CODE:
+!/bin/bash -x
+
+echo "Enter Number in Integer(Single Digit):"
+read input
+
+
+sunday=1
+monday=2
+tuesday=3
+wednesday=4
+thursday=5
+friday=6
+saturday=7
+seven=7
+
+if [ $input -eq $sunday ]
+then
+   output=Sunday
+
+elif [ $input -eq $monday ]
+then
+   output=Monday
+
+elif [ $input -eq $tuesday ]
+then
+   output=Tuesday
+elif [ $input -eq $wednesday ]
+then
+   output=Wednesday
+
+elif [ $input -eq $thursday ]
+then
+   output=thursday
+
+elif [ $input -eq $friday ]
+then
+   output=Friday
+
+elif [ $input -eq $saturday ]
+then
+   output=Saturday
+
+else
+   output=Invalid
+fi
+
+echo "Number" $input "in Week Day" $output
+
+
+
+OUTPUT: 
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElifelse$ ./ifelifelsetwo.sh 
++ echo 'Enter Number in Integer(Single Digit):'
+Enter Number in Integer(Single Digit):
++ read input
+4
++ sunday=1
++ monday=2
++ tuesday=3
++ wednesday=4
++ thursday=5
++ friday=6
++ saturday=7
++ seven=7
++ '[' 4 -eq 1 ']'
++ '[' 4 -eq 2 ']'
++ '[' 4 -eq 3 ']'
++ '[' 4 -eq 4 ']'
++ output=Wednesday
++ echo Number 4 'in Week Day' Wednesday
+Number 4 in Week Day Wednesday
+
+
+
+3. Read a number 1,10,100,1000 etc and display unit,ten,
+   hundred,thousand,...
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter Number in Integer(Between Units & Lakh):"
+read num
+
+
+if [ $((num/10)) -eq 0 ]
+then
+   echo "Number $num is in Units"
+elif [ $(((num/10)/10)) -eq 0 ]
+then
+   echo "Number $num is in Tens"
+elif [ $(((num/100)/10)) -eq 0 ]
+then
+   echo "Number $num is in Hundered"
+elif [ $(((num/1000)/10)) -eq 0 ]
+then
+   echo "Number $num is in Thousand"
+elif [ $(((num/10000)/10)) -eq 0 ]
+then
+   echo "Number $num is in Ten Thousand"
+elif [ $(((num/100000)/10)) -eq 0 ]
+then
+   echo "Number $num is in Lakh"
+else
+   echo "$num is Out of Range"
+fi
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElifelse$ ./ifelifelsethreetrial.sh 
++ echo 'Enter Number in Integer(Between Units & Lakh):'
+Enter Number in Integer(Between Units & Lakh):
++ read num
+387543
++ '[' 38754 -eq 0 ']'
++ '[' 3875 -eq 0 ']'
++ '[' 387 -eq 0 ']'
++ '[' 38 -eq 0 ']'
++ '[' 3 -eq 0 ']'
++ '[' 0 -eq 0 ']'
++ echo 'Number 387543 is in Lakh'
+Number 387543 is in Lakh
+
+
+
+4. Enter 3 Numbers do following arithmetic operation and
+   find the one that is maximum and minimum
+	1. a+b*c	3. c+a/b
+	2. a%b+c	4. a*b+c
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter value for a"
+read a
+
+echo "Enter value for b"
+read b
+
+echo "Enter value for c"
+read c
+
+if [[ $a -lt $b && $a -lt $c ]] 
+then
+   min=$a
+
+elif [[ $b -lt $a && $b -lt $c ]] 
+then
+   min=$b
+
+elif [[ $c -lt $a && $c -lt $b ]]
+then
+   min=$c
+
+
+elif [[ $a -gt $b && $a -gt $c ]] 
+then
+   max=$a
+elif [[ $b -gt $a && $b -gt $c ]] 
+then
+   max=$b
+
+elif [[ $c -gt $a && $c -gt $b ]]
+then
+   min=$c
+
+fi
+echo "Maximum Value is: $max"
+echo "Minimum Value is: $min" 
+
+op=$(((a+b)*c))
+echo "Calculate (a+b*c) Answer is: $op"
+
+op=$(((a%b)+c))
+echo "Calculate (a%b+c) Answer is: $op"
+
+op=$(((c)+a/b))
+echo "Calculate (c+a/b) Answer is: $op"
+
+op=$(((a*b)+c))
+echo "Calculate (a*b+c) Answer is: $op"
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoIfElifelse$ ./ifelifelsefour.sh 
++ echo 'Enter value for a'
+Enter value for a
++ read a
+10
++ echo 'Enter value for b'
+Enter value for b
++ read b
+20
++ echo 'Enter value for c'
+Enter value for c
++ read c
+30
++ [[ 10 -lt 20 ]]
++ [[ 10 -lt 30 ]]
++ min=10
++ echo 'Maximum Value is: '
+Maximum Value is: 
++ echo 'Minimum Value is: 10'
+Minimum Value is: 10
++ op=900
++ echo 'Calculate (a+b*c) Answer is: 900'
+Calculate (a+b*c) Answer is: 900
++ op=40
++ echo 'Calculate (a%b+c) Answer is: 40'
+Calculate (a%b+c) Answer is: 40
++ op=30
++ echo 'Calculate (c+a/b) Answer is: 30'
+Calculate (c+a/b) Answer is: 30
++ op=230
++ echo 'Calculate (a*b+c) Answer is: 230'
+Calculate (a*b+c) Answer is: 230
+
+
+   
+
+*) Selection Practice Problems with case statement:
+
+1. Read a single digit number and write the number in word
+   using Case.
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter Number in Integer(Single Digit):"
+read input
+
+
+zero=0
+one=1
+two=2
+three=3
+four=4
+five=5
+six=6
+seven=7
+eight=8
+nine=9
+ten=10
+
+case $input in
+         $zero)
+            output=Zero
+               ;;
+         $one)
+            output=One
+               ;;
+         $two)
+            output=Two
+               ;;
+	 $three)
+	    output=Three
+	       ;;
+         $four)
+            output=Four
+               ;;
+         $five)
+            output=Five
+               ;;
+         $six)
+            output=Six
+               ;;
+         $seven)
+            output=Seven
+               ;;
+         $eight)
+            output=Eight
+               ;;
+         $nine)
+            output=Nine
+               ;;
+         $ten)
+            output=Ten
+               ;;
+         *)
+            output=NotApplicable
+               ;;
+esac
+
+echo "Number" $input "in Characters" $output
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./caseone.sh 
++ echo 'Enter Number in Integer(Single Digit):'
+Enter Number in Integer(Single Digit):
++ read input
+10
++ zero=0
++ one=1
++ two=2
++ three=3
++ four=4
++ five=5
++ six=6
++ seven=7
++ eight=8
++ nine=9
++ ten=10
++ case $input in
++ output=Ten
++ echo Number 10 'in Characters' Ten
+Number 10 in Characters Ten
+
+
+
+2. Read a number and display the week day (Sunday, Monday..).
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter Number in Integer(Range from 1 TO 7):"
+read input
+
+
+sunday=1
+monday=2
+tuesday=3
+wednesday=4
+thursday=5
+friday=6
+saturday=7
+
+case $input in
+         $sunday)
+            output=Sunday
+               ;;
+         $monday)
+            output=Monday
+               ;;
+         $tuesday)
+            output=Tuesday
+               ;;
+         $wednesday)
+            output=Wednesday
+               ;;
+         $thursday)
+            output=Thursday
+               ;;
+	 $friday)
+            output=Friday
+               ;;
+         $saturday)
+            output=Saturday
+               ;;
+         *)
+            output=InvalidNumber
+               ;;
+esac
+
+echo "Number" $input "in Week Day" $output
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casetwo.sh 
++ echo 'Enter Number in Integer(Range from 1 TO 7):'
+Enter Number in Integer(Range from 1 TO 7):
++ read input
+4
++ sunday=1
++ monday=2
++ tuesday=3
++ wednesday=4
++ thursday=5
++ friday=6
++ saturday=7
++ case $input in
++ output=Wednesday
++ echo Number 4 'in Week Day' Wednesday
+Number 4 in Week Day Wednesday
+
+
+
+3. Read a number 1,10,100,100,etc and display unit,ten,
+   hundered,...
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "Enter Number in Integer(1,10,100,1000):"
+read input
+
+
+unit=1
+ten=10
+hundered=100
+thousand=1000
+
+case $input in
+         $unit)
+            output=Unit
+               ;;
+         $ten)
+            output=Ten
+               ;;
+         $hundered)
+            output=Hundered
+               ;;
+         $thousand)
+            output=Thousand
+               ;;
+         *)
+            output=InvalidRangeNumber
+               ;;
+esac
+
+echo "Number" $input "in Place Value:" $output
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casethree.sh 
++ echo 'Enter Number in Integer(1,10,100,1000):'
+Enter Number in Integer(1,10,100,1000):
++ read input
+1000
++ unit=1
++ ten=10
++ hundered=100
++ thousand=1000
++ case $input in
++ output=Thousand
++ echo Number 1000 'in Place Value:' Thousand
+Number 1000 in Place Value: Thousand
+
+
+
+4. Write a program that takes user input and does unit
+   conversion of different length units
+	1. Feet To Inch	 3. Inch To Feet
+	2. Feet To Meter 4. Meter To Feet
+Ans)
+CODE:
+#!/bin/bash -x
+
+echo "1. Inches To Feet."
+echo "2. Feet To Inches."
+echo "3. Feet To Meter."
+echo "4. Meter To Feet."
+
+echo "Enter the Option:"
+read input
+
+
+InchesToFeet=1
+FeetToInches=2
+FeetToMeter=3
+MeterToFeet=4
+
+case $input in
+         $InchesToFeet)
+            echo "Enter Inches"
+            read inches
+            outputone=$(($inches / 12))
+            echo "Inches To Feet(ft) is:" $outputone
+               ;;
+         $FeetToInches)
+            echo "Enter Feet"
+            read feet
+            outputtwo=$(($feet * 12))
+            echo "Feet To Inches is:" $outputtwo
+               ;;
+         $FeetToMeter)
+            echo "Enter Feet"
+            read feet
+            outputthree=$(($feet * 381/1250))
+            echo "Feet To Meter is:" $outputthree
+               ;;
+         $MeterToFeet)
+            echo "Enter Meter"
+            read meter
+            outputfour=$(($meter * 4101/1250))
+            echo "Meter TO Feet is:" $outputfour
+               ;;
+         *)
+            output=InvalidRangeNumber
+               ;;
+esac
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casefour.sh 
++ echo '1. Inches To Feet.'
+1. Inches To Feet.
++ echo '2. Feet To Inches.'
+2. Feet To Inches.
++ echo '3. Feet To Meter.'
+3. Feet To Meter.
++ echo '4. Meter To Feet.'
+4. Meter To Feet.
++ echo 'Enter the Option:'
+Enter the Option:
++ read input
+1
++ InchesToFeet=1
++ FeetToInches=2
++ FeetToMeter=3
++ MeterToFeet=4
++ case $input in
++ echo 'Enter Inches'
+Enter Inches
++ read inches
+42
++ outputone=3
++ echo 'Inches To Feet(ft) is:' 3
+Inches To Feet(ft) is: 3
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casefour.sh 
++ echo '1. Inches To Feet.'
+1. Inches To Feet.
++ echo '2. Feet To Inches.'
+2. Feet To Inches.
++ echo '3. Feet To Meter.'
+3. Feet To Meter.
++ echo '4. Meter To Feet.'
+4. Meter To Feet.
++ echo 'Enter the Option:'
+Enter the Option:
++ read input
+2
++ InchesToFeet=1
++ FeetToInches=2
++ FeetToMeter=3
++ MeterToFeet=4
++ case $input in
++ echo 'Enter Feet'
+Enter Feet
++ read feet
+42
++ outputtwo=504
++ echo 'Feet To Inches is:' 504
+Feet To Inches is: 504
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casefour.sh 
++ echo '1. Inches To Feet.'
+1. Inches To Feet.
++ echo '2. Feet To Inches.'
+2. Feet To Inches.
++ echo '3. Feet To Meter.'
+3. Feet To Meter.
++ echo '4. Meter To Feet.'
+4. Meter To Feet.
++ echo 'Enter the Option:'
+Enter the Option:
++ read input
+3
++ InchesToFeet=1
++ FeetToInches=2
++ FeetToMeter=3
++ MeterToFeet=4
++ case $input in
++ echo 'Enter Feet'
+Enter Feet
++ read feet
+42
++ outputthree=12
++ echo 'Feet To Meter is:' 12
+Feet To Meter is: 12
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems/ProblemsTwoCase$ ./casefour.sh 
++ echo '1. Inches To Feet.'
+1. Inches To Feet.
++ echo '2. Feet To Inches.'
+2. Feet To Inches.
++ echo '3. Feet To Meter.'
+3. Feet To Meter.
++ echo '4. Meter To Feet.'
+4. Meter To Feet.
++ echo 'Enter the Option:'
+Enter the Option:
++ read input
+4
++ InchesToFeet=1
++ FeetToInches=2
++ FeetToMeter=3
++ MeterToFeet=4
++ case $input in
++ echo 'Enter Meter'
+Enter Meter
++ read meter
+42
++ outputfour=137
++ echo 'Meter TO Feet is:' 137
+Meter TO Feet is: 137
+
