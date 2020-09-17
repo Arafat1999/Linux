@@ -1,0 +1,203 @@
+Name: Arafat Honpode
+
+PROBLEMS 01 Sequences Practice Problems: -
+
+1. Use Random Function ((RANDOM)) to get Single Digit.
+Ans)
+CODE:
+#!/bin/bash -x
+
+randomCheck=$((RANDOM%2))
+
+echo Random Single Digit Number is $randomCheck
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./one.sh 
++ randomCheck=0
++ echo Random Single Digit Number is 0
+Random Single Digit Number is 0
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./one.sh 
++ randomCheck=1
++ echo Random Single Digit Number is 1
+Random Single Digit Number is 1
+
+
+
+
+2. Use random to get Dice Number between 1 to 6.
+Ans)
+CODE:
+#!/bin/bash -x
+
+randomCheck=$(( RANDOM % (6 - 1 + 1 ) + 1 ))    #$(( RANDOM% (MAX - MIN + DIFF) + MIN ))
+
+echo Random Dice Number Is $randomCheck
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./two.sh 
++ randomCheck=6
++ echo Random Dice Number Is 6
+Random Dice Number Is 6
+
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./two.sh 
++ randomCheck=5
++ echo Random Dice Number Is 5
+Random Dice Number Is 5
+
+
+
+3. Add two Random Dice Number and print the result.
+Ans)
+CODE:
+#!/bin/bash -x
+
+randomCheckOne=$(( RANDOM % (6 - 1 + 1 ) + 1 ))    #$(( RANDOM% (MAX - MIN + DIFF) + MIN ))
+randomCheckTwo=$(( RANDOM % (6 - 1 + 1 ) + 1 ))
+
+echo Random First Dice Number Is: $randomCheckOne
+echo Random Second Dice Number Is: $randomCheckTwo
+
+
+sum=$(($randomCheckOne+$randomCheckTwo))
+
+echo Addition of Two Random Dice Number is $sum
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./three.sh 
++ randomCheckOne=5
++ randomCheckTwo=6
++ echo Random First Dice Number Is: 5
+Random First Dice Number Is: 5
++ echo Random Second Dice Number Is: 6
+Random Second Dice Number Is: 6
++ sum=11
++ echo Addition of Two Random Dice Number is 11
+Addition of Two Random Dice Number is 11
+
+
+
+4. Write a program that reads 5 random 2 digit value, then find their sum and average.
+Ans)
+CODE:
+#!/bin/bash -x
+
+randomCheck=$(( RANDOM % (50 - 10 + 1 ) + 10 ))    #$(( RANDOM% (MAX - MIN + DIFF) + MIN ))
+
+
+sum=$(($randomCheck+$randomCheck))
+avg=$(($sum / $randomCheck))
+
+echo Sum of Two Digit Random Number is $sum
+echo Average of Two Digit Random Number is $avg 
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./four.sh 
++ randomCheck=24
++ sum=48
++ avg=2
++ echo Sum of Two Digit Random Number is 48
+Sum of Two Digit Random Number is 48
++ echo Average of Two Digit Random Number is 2
+Average of Two Digit Random Number is 2
+
+
+
+
+5. Unit Conversion.
+
+	a. 1ft = 12 in then 42 in = ? ft.
+	Ans)
+	CODE:
+	#!/bin/bash
+
+	echo Enter Inches
+	read inches
+
+	feet=$(($inches / 12))
+	echo "Inches to Foot(ft) is" $feet
+
+	OUTPUT:
+	arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./fivea.sh 
+	Enter Inches
+	42
+	Inches to Foot(ft) is 3
+	
+
+
+
+	b. Rectangular plot of 60 feetx40feet in meters.
+	Ans)
+	CODE:
+	#!/bin/bash -x
+
+	echo "Enter Length for Rectangle in Feet:"
+	read l
+
+	echo "Enter Width for Rectangle in Feet:"
+	read w
+
+	echo $l"Feet x "$w"Feet"
+
+	multi=$(($l*$w))
+	conversion=$(($multi*381/1250))
+
+	echo Rectangular plot of $l"Feet x "$w"Feet in" meters is $conversion	
+	
+	OUTPUT:
+	arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./fiveb.sh 
+	+ echo 'Enter Length for Rectangle in Feet:'
+	Enter Length for Rectangle in Feet:
+	+ read l
+	60
+	+ echo 'Enter Width for Rectangle in Feet:'
+	Enter Width for Rectangle in Feet:
+	+ read w
+	40
+	+ echo '60Feet x 40Feet'
+	60Feet x 40Feet
+	+ multi=2400
+	+ conversion=731
+	+ echo Rectangular plot of '60Feet x 40Feet in' meters is 731
+	Rectangular plot of 60Feet x 40Feet in meters is 731
+
+
+
+
+	c. Calculate area of 25 such plots in acers.
+	Ans)
+	CODE:
+
+	#!/bin/bash -x
+
+	echo "Enter the Area(sq m)"
+	read area
+
+	calculation=$(($area / (202343/50)))
+
+	echo Acres $calculation
+	
+
+	
+	OUTPUT:
+	arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./fivec.sh 
+	+ echo 'Enter the Area(sq m)'
+	Enter the Area(sq m)
+	+ read area
+	25
+	+ calculation=0
+	+ echo Acres 0
+	Acres 0
+	arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day5/PracticeProblems$ ./fivec.sh 
+	+ echo 'Enter the Area(sq m)'
+	Enter the Area(sq m)
+	+ read area
+	10000
+	+ calculation=2
+	+ echo Acres 2
+	Acres 2
+
+
+
+
+

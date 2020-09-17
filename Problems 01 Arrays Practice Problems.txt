@@ -1,0 +1,214 @@
+Name: Arafat Honpode 
+
+Problems 01 Arrays Practice Problems:-
+
+2. Write a program in the following steps
+	a. Generates 10 Random 3 Digit number.
+	b. Store this random numbers into a array.
+	c. Then find the 2nd largest and 2nd smallest element.
+Ans)
+CODE:
+#!/bin/bash
+
+echo "Ten Random Three Digit Number in Sorted Array:"
+temp=0
+for (( i=0;i<10;i++ ))
+do
+   randomCheck=$(( RANDOM % (999 - 100 + 1 ) + 100 ))
+   array[i]=$randomCheck
+done
+#Logic for sorting values in array.
+for (( j=0;j<10;j++ ))
+do
+   for (( k=j+1;k<10;k++ ))
+   do
+      if (( $((array[j])) < $((array[k])) ))
+      then
+         temp=$((array[k]))
+         array[k]=$((array[j]))
+         array[j]=$temp
+      fi
+   done
+   echo ${array[j]}
+done
+echo "Second Largest Number in Array is:"${array[1]}
+echo "Second smallest Number in Array is:"${array[8]}
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day7/PracticeProblems$ ./arraytwo.sh 
+Ten Random Three Digit Number in Sorted Array:
+994
+836
+812
+797
+764
+635
+449
+375
+281
+120
+Second Largest Number in Array is:836
+Second smallest Number in Array is:281
+
+
+3. Prime Factorization program to store all the prime factors of a number n into an array
+   and finally display the output.
+Ans)
+CODE:
+#!/bin/bash -x
+
+read -p "Enter the Number:" num
+function primefactor()
+{
+no=$1
+pos=0
+
+   for (( i=2; i<=no; i++ ))
+   do
+      while (( $no % $i == 0 ))
+      do
+         array[pos]=$i
+         no=$(( $no/$i ))
+         ((pos++))
+      done
+   done
+   echo ${array[@]}
+}
+
+output=$(primefactor $num)
+echo $output
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day7/PracticeProblems$ ./arraythree.sh 
++ read -p 'Enter the Number:' num
+Enter the Number:45
+++ primefactor 45
+++ no=45
+++ pos=0
+++ (( i=2 ))
+++ (( i<=no ))
+++ ((  45 % 2 == 0  ))
+++ (( i++  ))
+++ (( i<=no ))
+++ ((  45 % 3 == 0  ))
+++ array[pos]=3
+++ no=15
+++ (( pos++ ))
+++ ((  15 % 3 == 0  ))
+++ array[pos]=3
+++ no=5
+++ (( pos++ ))
+++ ((  5 % 3 == 0  ))
+++ (( i++  ))
+++ (( i<=no ))
+++ ((  5 % 4 == 0  ))
+++ (( i++  ))
+++ (( i<=no ))
+++ ((  5 % 5 == 0  ))
+++ array[pos]=5
+++ no=1
+++ (( pos++ ))
+++ ((  1 % 5 == 0  ))
+++ (( i++  ))
+++ (( i<=no ))
+++ echo 3 3 5
++ output='3 3 5'
++ echo 3 3 5
+3 3 5
+
+
+4. Write a program to show sum of three interger add to Zero.
+Ans)
+CODE:
+#!/bin/bash -x
+
+for ((i=0;i<=2;i++))
+do
+   read -p "Enter the Integer:" inte
+   num[$i]=$inte
+done
+echo ${num[@]}
+if [[ $((${num[0]}+${num[1]}+${num[2]})) -eq 0 ]]
+then
+   echo "Sum of Three Integers Adds To Zero"
+else
+   echo "Sum of Three Integers Does Not Adds To Zero"
+fi
+
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day7/PracticeProblems$ ./arrayfour.sh 
++ (( i=0 ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:0
++ num[$i]=0
++ (( i++ ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:0
++ num[$i]=0
++ (( i++ ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:0
++ num[$i]=0
++ (( i++ ))
++ (( i<=2 ))
++ echo 0 0 0
+0 0 0
++ [[ 0 -eq 0 ]]
++ echo 'Sum of Three Integers Adds To Zero'
+Sum of Three Integers Adds To Zero
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day7/PracticeProblems$ ./arrayfour.sh 
++ (( i=0 ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:34
++ num[$i]=34
++ (( i++ ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:23
++ num[$i]=23
++ (( i++ ))
++ (( i<=2 ))
++ read -p 'Enter the Integer:' inte
+Enter the Integer:12
++ num[$i]=12
++ (( i++ ))
++ (( i<=2 ))
++ echo 34 23 12
+34 23 12
++ [[ 69 -eq 0 ]]
++ echo 'Sum of Three Integers Does Not Adds To Zero'
+Sum of Three Integers Does Not Adds To Zero
+
+
+5. Take a range from 0 - 100, find the digits that are repeated twice like 33, 77,..etc and
+   store them in an array.
+Ans)
+CODE:
+#!/bin/bash
+
+ten=0
+unit=0
+pos=0
+
+for ((i=1;i<=100;i++))
+do
+   unit=$((i%10))
+   ten=$((i/10))
+   if [ $ten -eq $unit ]
+   then
+      output[((pos++))]=$i
+   fi
+done
+echo ${output[@]}
+
+OUTPUT:
+arafat@kali:~/Desktop/Arafat/TerminalCommands/linux-content/Day7/PracticeProblems$ ./arrayfive.sh 
+11 22 33 44 55 66 77 88 99
+
+
